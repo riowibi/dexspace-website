@@ -33,7 +33,7 @@ class Profile {
   getGender(h) {
       return this.gender.get(h);
   }   
-  setUid(gender) {
+  setUid(uid) {
       this.uid.set(uid);
   }
   getUid(h) {
