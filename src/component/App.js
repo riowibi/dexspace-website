@@ -1,18 +1,21 @@
-import React from "react";
+import React from 'react';
+// import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import UserHome from '../page/UserHome'
+import SignIn from '../page/SignIn'
+// import AuthProvider from '../service/AuthProvider'
+import PrivateRoute from '../PrivateRoute'
 
-export default function App() {
-  return ( 
-    <div className="App">
-      <h1 className="number-feature bold"  style={{fontSize:64}}>Dexspace</h1>
-      <h5>Desktop everywhere on anydevice</h5>
-      <br></br>
-      <a href="#contact">
-      <button type="button" class="btn btn-lg" style={{color:"white", backgroundColor:"#e12729"}}>
-        Try Now for Free
-      </button>
-      </a>
-      <br></br>
-      <p style={{marginTop:10}}><i>*Kuota Terbatas</i></p>
-    </div>
+const App = () => {
+  return (
+    // <AuthProvider>
+        <Router>
+          <div>
+            <Route exact path="/" component={UserHome} />
+            <Route exact path="/signin" component={SignIn} />
+          </div>
+        </Router>
+    // </AuthProvider>
   );
 }
+export default App;

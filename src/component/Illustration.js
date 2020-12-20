@@ -1,6 +1,4 @@
 import React from "react";
-import imgOne from "../asset/img/img-illustration-1-dexspace.png";
-import imgTwo from "../asset/img/img-illustration-2-dexspace.jpg";
 
 export default function Illustration() {
   return (
@@ -10,12 +8,12 @@ export default function Illustration() {
         <div class="row">
           <div class="col-sm">
           <img style={{ width: "100%" }}
-              src={imgOne}
+              src="https://firebasestorage.googleapis.com/v0/b/dexspace-e99a4.appspot.com/o/asset%2Fimg-illustration-1-dexspace.png?alt=media&token=93e06332-4bf6-44c4-ae8a-a6d4c84138f5"
               alt="Illustration Dexspace"></img>
           </div>
           <div class="col-sm">
           <img style={{ width: "100%" }}
-              src={imgTwo}
+              src="https://firebasestorage.googleapis.com/v0/b/dexspace-e99a4.appspot.com/o/asset%2Fimg-illustration-2-dexspace.jpg?alt=media&token=8dc2be8f-b7d8-431f-9e94-6bcd62f719f4"
               alt="Illustration Dexspace"></img>
           </div>
         </div>
@@ -26,11 +24,11 @@ export default function Illustration() {
           </p>
           <h5 class="bold" style={{color:"#e12729"}}>Benefits</h5>
           <p>
-            Kelebihan dalam menggunakan Virtual Desktop adalah keamanan yang dipastikan akan selalu di backup serta penggunaannya yang dapat di lakukan di semua device, sehingga tidak perlu takut lagi jika data tertinggal atau hilang PC karena rusak.  
+            Kelebihan dalam menggunakan Virtual Desktop adalah keamanan yang dipastikan akan selalu di backup serta penggunaannya yang dapat di lakukan di semua device, sehingga tidak perlu takut lagi jika data tertinggal atau hilang karena PC / Laptop rusak.  
           </p>
           <h5 class="bold" style={{color:"#e12729"}}>Cost</h5>
           <p>
-            Dengan Dexspace, harga nya lebih terjangkau di banding dengan membeli Desktop / Laptop sendiri, jadi tidak perlu lagi membuang biaya yang tidak perlu, dan tentunya udah bisa nikmatin fitur-fitur yang ada di Desktop 
+            Dengan Dexspace, harga nya lebih terjangkau di banding dengan membeli PC / Laptop sendiri, jadi tidak perlu lagi membuang biaya yang tidak perlu, dan tentunya udah bisa nikmatin fitur-fitur yang ada di Desktop 
           </p>
         </div>
       </div>

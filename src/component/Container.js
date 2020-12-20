@@ -3,9 +3,19 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
 
+// import AuthProvider from "../service/AuthProvider"
+
 import Product from "../page/Product";
-import SignUp from "../page/SignUp";
 import SignIn from "../page/SignIn";
+import UserHome from "../page/UserHome";
+import UserProfile from "../page/UserProfile";
+import UserCreateDex from "../page/UserCreateDex";
+import UserDex from "../page/UserDex";
+import AdminHome from "../page/AdminHome";
+import AdminDexList from "../page/AdminDexList";
+import AdminUserList from "../page/AdminUserList";
+import AdminUpdateDex from "../page/AdminUpdateDex";
+import PrivateRoute from '../PrivateRoute'
 
 export default function Container({ location }) {
   return (
@@ -18,14 +28,20 @@ export default function Container({ location }) {
           classNames="fade"
         > */}
           {/* <section className="route-section"> */}
+          {/* <AuthProvider> */}
             <Switch>
               <Route exact path="/" component={Product} />
-              <Route exact path="/signup" component={SignUp} />
               <Route exact path="/signin" component={SignIn} />
-              {/* <Route path="/first" component={First} />
-              <Route path="/second" component={Second} />
-              <Route path="/third" component={Third} /> */}
+              <PrivateRoute exact path="/home" component={UserHome} />
+              <PrivateRoute exact path="/profile" component={UserProfile} />
+              <PrivateRoute exact path="/create-dex" component={UserCreateDex} />
+              <PrivateRoute exact path="/dex/:name" component={UserDex} />
+              <PrivateRoute exact path="/dashboard" component={AdminHome} />
+              <PrivateRoute exact path="/dex-list/:status" component={AdminDexList} />
+              <PrivateRoute exact path="/dex-update/:name" component={AdminUpdateDex} />
+              <PrivateRoute exact path="/user-list" component={AdminUserList} />
             </Switch>
+          {/* </AuthProvider> */}
           {/* </section> */}
         {/* </CSSTransition>
       </TransitionGroup> */}

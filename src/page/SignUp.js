@@ -1,11 +1,16 @@
 import React from "react";
 
 import Register from "../component/Register";
+import Navbar from "../component/Navbar";
 
-export default function SignUp() {
+const SignUp = () => {
+
   return (
     <div>
+      <Navbar />
       <Register />
     </div>
-  );
+  )
 }
+
+export default SignUp;

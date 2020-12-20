@@ -1,22 +1,86 @@
 import React from "react";
-import {Link} from "react-router-dom";
+// import { auth, provider } from '../config';
 
-export default function Login() {
-  return (
-    <div className="Login">
-      <h3>Sign In</h3><br />
-      <div>
-        Username<br />
-        <input type="text" autoComplete="new-password" />
-      </div>
-      <div style={{ marginTop: 10 }}>
-        Password<br />
-        <input type="password" autoComplete="new-password" />
-      </div>
-      <br />
-      <input type="button" value="Sign In" style={{backgroundColor:"#e12729", borderStyle:"none", paddingTop:12,paddingBottom:12, paddingRight:32,paddingLeft:32,borderRadius:12, fontWeight:"bold",color:"white"}}/><br /><br />
-      <span>Have no account yet? <Link className="link" to="/signup">Register</Link></span>
-      {/* {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br /> */}
-    </div>
-  );
-}
+import NavbarLogin from "../component/NavbarLogin";
+
+const Login = (props) => {
+     
+  const {
+    email, 
+    setEmail, 
+    password, 
+    setPassword, 
+    handleLogin, 
+    handleSignup, 
+    hasAccount, 
+    setHasAccount, 
+    emailError, 
+    passwordError,
+  } = props;
+
+      return(
+        <section>
+          <NavbarLogin /> 
+          <div className="Login">
+              {
+                hasAccount ? (
+                <>
+                  <h3 style={{fontWeight:"bold"}}>Register</h3>
+                </>
+                ) :
+                (
+                <>
+                  <h3 style={{fontWeight:"bold"}}>Login</h3>
+                </>
+                )
+              }
+            <label>Email</label>
+            <br/>
+            <input 
+              type="text"
+              autoFocus
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <br/>
+            {/* <form> */}
+              <label>Password</label>
+              <br/>
+              <input 
+                type="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <br/>
+              <br/>
+              <p className="errorMessage">{emailError}</p>
+              <p className="errorMessage">{passwordError}</p>
+            
+              <div>
+                {
+                  hasAccount ? (
+                  <>
+                    <button className="loginButton" onClick={handleSignup}>Create Account</button>
+                    <p>Already has account? <span className="linkLogin" onClick={() => setHasAccount(!hasAccount)}>Sign In</span></p>
+                  </>
+                  ) :
+                  ( 
+                           
+                  <>
+                    <button className="loginButton" onClick={handleLogin}>Sign In</button>
+                    <p>Has no account yet? <span className="linkLogin" onClick={() => setHasAccount(!hasAccount)}>Register</span></p>
+                  </>
+                  )
+                }
+              </div>
+            {/* </form> */}
+            
+            {/* <span>Have no account yet? <Link className="link" to="/signup">Register</Link></span> */}
+          </div>
+        </section>
+    )
+  }
+
+export default Login;

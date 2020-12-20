@@ -10,7 +10,7 @@ export default function Contact() {
         Get Contact Us Now
       </h2>
       <br></br>
-      <a href="https://t.me/dexspacecenter">
+      <a href="https://t.me/dexspace_care">
       <button type="button" class="btn btn-lg" style={{color:"white", backgroundColor:"#28A0D4"}}>
         <i class="fab fa-telegram-plane"></i> Telegram
       </button>
