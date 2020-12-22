@@ -35,12 +35,12 @@ const AdminHome = () => {
   return(
     <section>
       <NavbarAdmin/>
-      <div class="container text-center">
+      <div className="container text-center">
         <div className="margin-mobile">
         <h4 style={{marginBottom:0, textAlign:"left"}}>Overview</h4>
         <hr/>
-        <div class="row">
-          <div class="col-xl-6">
+        <div className="row">
+          <div className="col-xl-6">
             <Link className="link" to="/user-list" status="all">
             <div className="col child-box shadow p-3 mb-5 boxTitle"> 
               <span>Registered Users</span><br/>
@@ -48,7 +48,7 @@ const AdminHome = () => {
             </div>
             </Link>
           </div>  
-          <div class="col-xl-6">
+          <div className="col-xl-6">
             <Link className="link" to="/dex-list/all" status="all">
             <div className="col child-box shadow p-3 mb-5 boxTitleTwo"> 
               <span>Total Dex</span><br/>
@@ -57,8 +57,8 @@ const AdminHome = () => {
             </Link>
           </div>            
         </div>
-        <div class="row">
-        <div class="col-xl-3">
+        <div className="row">
+        <div className="col-xl-3">
           <Link className="link" to="/dex-list/build" status="build">
             <div className="col child-box shadow p-3 mb-5 bg-white boxTitleTwo"> 
               <span>Dex Build</span><br/>
@@ -66,7 +66,7 @@ const AdminHome = () => {
             </div>
             </Link>
           </div>
-          <div class="col-xl-3">
+          <div className="col-xl-3">
             <Link className="link" to="/dex-list/active" status="active">
             <div className="col child-box shadow p-3 mb-5 bg-white boxTitleTwo"> 
               <span>Dex Active</span><br/>
@@ -74,7 +74,7 @@ const AdminHome = () => {
             </div>
             </Link>
           </div>
-          <div class="col-xl-3">
+          <div className="col-xl-3">
             <Link className="link" to="/dex-list/suspend" status="suspend">
             <div className="col child-box shadow p-3 mb-5 bg-white boxTitleTwo"> 
               <span>Dex Suspend</span><br/>
@@ -82,7 +82,7 @@ const AdminHome = () => {
             </div>
             </Link>
           </div>
-          <div class="col-xl-3">
+          <div className="col-xl-3">
             <Link className="link" to="/dex-list/inactive" status="inactive">
             <div className="col child-box shadow p-3 mb-5 bg-white boxTitleTwo"> 
               <span>Dex Inactive</span><br/>

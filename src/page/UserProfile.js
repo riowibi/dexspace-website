@@ -21,10 +21,6 @@ const UserHome = () => {
   
   const uid = firebase.auth().currentUser.uid;
 
-  const handleLogout = () => {
-    firebase.auth().signOut();
-  }
-
   const updateProfile = () => {
 
     const profileRef = firebase.firestore().collection("profile").doc(docId)
@@ -48,7 +44,7 @@ const UserHome = () => {
     firebase.firestore().collection("profile").onSnapshot(snapshot => {
       
       snapshot.forEach(doc => {
-        if(uid == doc.data().uid){
+        if(uid === doc.data().uid){
           setDocId(doc.id);
           setBirthdate(doc.data().birthdate.toDate());
           setFullname(doc.data().fullname);
@@ -63,7 +59,7 @@ const UserHome = () => {
 
   useEffect(() => {
     readProfile()
-  }, [])
+  },[])
 
   const submit = () => {
     confirmAlert({
@@ -92,40 +88,38 @@ const UserHome = () => {
         <div className="child-wb shadow p-3 mb-5 bg-white" style={{marginTop:30}}>
         
         <table className="tableDex">
-          <td className="labelForm">
-            <tr>Fullname</tr>
-            <tr>Phone Number</tr>
-            <tr>Birth Date</tr>
-            <tr>Gender</tr>
-          </td>
-          <td>
-            <tr><input 
-            type="text"
-            required
-            value={fullname}
-            onChange={(e) => setFullname(e.target.value)}
-          /></tr>
-            <tr><input 
-            type="text"
-            required
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          /></tr>
-            <tr>
-            <DatePicker
-              // dateFormat="MM/DD/YYYY"
-              selected={birthdate}
-              onChange={(date) => setBirthdate(date)}
-            />
-              {/* <input 
-            type="text"
-            required
-            value={birthdate}
-            onChange={(e) => setBirthdate(e.target.value)} */}
-          {/* /> */}
-          </tr>
-            <tr><Select value={(gender === "Male" || gender === "") ? options[0] : options[1]} options={options} onChange={(e) => setGender(e.value)} /></tr>
-          </td>
+          <tbody>
+            <tr className="labelForm">
+              <td>Fullname</td>
+              <td><input 
+              type="text"
+              required
+              value={fullname}
+              onChange={(e) => setFullname(e.target.value)}
+            /></td>
+            </tr>
+            <tr className="labelForm">
+              <td>Phone Number</td>
+              <td><input 
+              type="text"
+              required
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            /></td>
+            </tr>
+            <tr className="labelForm">
+              <td>Birth Date</td>
+              <td><DatePicker
+                // dateFormat="MM/DD/YYYY"
+                selected={birthdate}
+                onChange={(date) => setBirthdate(date)}
+              /></td>
+            </tr>
+            <tr className="labelForm">
+              <td>Gender</td>
+              <td><Select value={(gender === "Male" || gender === "") ? options[0] : options[1]} options={options} onChange={(e) => setGender(e.value)} /></td>
+            </tr>
+          </tbody>          
         </table>
           
           <button className="loginButton" onClick={submit}>Save Profile</button>

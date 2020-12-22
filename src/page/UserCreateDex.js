@@ -10,7 +10,7 @@ const UserCreateDex = () => {
 
   useEffect(() => {
     getFullname();
-  }, []);
+  },[]);
 
   const [os, setOs] = useState("");
   const [specification, setSpecification] = useState("");
@@ -26,7 +26,7 @@ const UserCreateDex = () => {
     firebase.firestore().collection("profile").onSnapshot(snapshot => {
       
       snapshot.forEach(doc => {
-        if(uid == doc.data().uid){
+        if(uid === doc.data().uid){
           setFullname(doc.data().fullname)
         }
       })
@@ -39,7 +39,7 @@ const UserCreateDex = () => {
     var cpu = "";
     var ram = "";
 
-    if(specification == "study"){
+    if(specification === "study"){
       cpu = "2 Processor";
       ram = "2 GB";
     } else {
@@ -119,11 +119,11 @@ const UserCreateDex = () => {
           <div className="col-md-6" style={{paddingBottom:30}}>
             <div className="row">
               <div className="col-md-6 col-sm-12">
-                <div class="card bg-light mb-3">
-                  <div class="card-body">
-                    <h5 class="card-title"><b>Study</b></h5>
+                <div className="card bg-light mb-3">
+                  <div className="card-body">
+                    <h5 className="card-title"><b>Study</b></h5>
                     <hr/>
-                    <p class="card-text" style={{color:'white'}}>
+                    <p className="card-text" style={{color:'white'}}>
                       <span>Specification</span><br/><br/>
                       <span>CPU : 2 Processor</span><br/>
                       <span>RAM : 2 GB</span><br/>
@@ -135,11 +135,11 @@ const UserCreateDex = () => {
                 </div>
               </div>
               <div className="col-md-6 col-sm-12">
-                <div class="card bg-light mb-3">
-                  <div class="card-body">
-                    <h5 class="card-title"><b>Work</b></h5>
+                <div className="card bg-light mb-3">
+                  <div className="card-body">
+                    <h5 className="card-title"><b>Work</b></h5>
                     <hr/>
-                    <p class="card-text" style={{color:'white'}}>
+                    <p className="card-text" style={{color:'white'}}>
                       <span>Specification</span><br/><br/>
                       <span>CPU : 4 Processor</span><br/>
                       <span>RAM : 4 GB</span><br/>

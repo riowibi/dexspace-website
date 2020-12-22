@@ -29,4 +29,4 @@ const handleLogout = () => {
 // const provider = new firebase.auth.GoogleAuthProvider();
 // export default { auth, provider, firebase};
 export default firebase;
-export {handleLogout};
+export {handleLogout, firebaseConfig};

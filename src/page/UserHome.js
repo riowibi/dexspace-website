@@ -1,4 +1,4 @@
-import React , {useContext, useEffect, useState}  from "react";
+import React , {useEffect, useState}  from "react";
 import NavbarUser from "../component/NavbarUser";
 import firebase from "../config";
 import { Redirect, Link } from "react-router-dom";
@@ -15,9 +15,9 @@ const UserHome = () => {
   const checkAdmin = () => {
     firebase.firestore().collection("role").onSnapshot(snapshot => {
       
-      var count = 0;
+      // var count = 0;
       snapshot.forEach(doc => {
-        if(uid == doc.data().uid && doc.data().role == "admin"){
+        if(uid === doc.data().uid && doc.data().role === "admin"){
           setIsAdmin(true);
         }
       })
@@ -29,7 +29,7 @@ const UserHome = () => {
       
       var count = 0;
       snapshot.forEach(doc => {
-        if(uid == doc.data().uid){
+        if(uid === doc.data().uid){
           count = count + 1;
         }
       })
@@ -52,7 +52,7 @@ const UserHome = () => {
       uid: firebase.auth().currentUser.uid,
     })
     .then(ref => {
-      console.log("Added document with ID: ", ref.id)
+      // console.log("Added document with ID: ", ref.id)
     })
   }
 
@@ -65,7 +65,7 @@ const UserHome = () => {
       
       var count = 0;
       snapshot.forEach(doc => {
-        if(uid == doc.data().uid && doc.data().status != "deleted"){
+        if(uid === doc.data().uid && doc.data().status !== "deleted"){
           count = count + 1;
           // console.log(doc.data().os);
           dexs.push({
@@ -78,10 +78,10 @@ const UserHome = () => {
 
       if(count > 0){
         setIsUserHasDex(true);
-        console.log(isUserHasDex);
+        // console.log(isUserHasDex);
       } else {
         setIsUserHasDex(false);
-        console.log(isUserHasDex);
+        // console.log(isUserHasDex);
       }
     })
 
@@ -92,7 +92,7 @@ const UserHome = () => {
     checkAdmin();
     checkNewUser();
     checkDexUser();
-  }, []);
+  },[]);
 
   const getUrl = (name) => {
     var url = '/dex/';
@@ -144,8 +144,8 @@ const UserHome = () => {
               <h4 className="homeTitle" style={{marginBottom:20}}>My <span style={{color:"#e12729",fontSize:28}}>Dex</span> Cloud</h4>
               <div className="child shadow p-3 mb-5 bg-white" style={{textAlign:"center"}}>
               { 
-                dex.map((data, index) => (        
-                  <Link className="link" to={getUrl(data.name)} dexId={data.name}> 
+                dex.map((data, i) => (        
+                  <Link key={i} className="link" to={getUrl(data.name)}> 
                   <div className="listDexButton">
                     <p>
                       <span>{data.name}</span><br/>

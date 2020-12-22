@@ -8,29 +8,29 @@ const NavBarUser = () => {
   
   return (
     <div className="Navbar shadow p-3 mb-5 bg-white">
-      <div class="container ">
-        <div class="row">
-          <div class="col-xs">
+      <div className="container ">
+        <div className="row">
+          <div className="col-xs">
             <h1 className="bold">
               <Link className="link" style={{color:"black"}} to="/home"><span className="number-feature" style={{fontSize:38}}>Dexspace</span> <span style={{fontSize:24, fontWeight:"lighter"}}>Console</span></Link></h1>
           </div>
 
-          <div class="col-sm">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" style={{ float:"right"}}>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+          <div className="col-sm">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{ float:"right"}}>
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
               </button>
 
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul className="navbar-nav mr-auto">
                     {/* <li class="nav-item">
                       <a class="nav-link"><Link className="link" to="/profile">Profile</Link></a>
                     </li> */}
-                    <li class="nav-item">
-                      <a class="nav-link"><Link className="link" to="/profile">Profile</Link></a>
+                    <li className="nav-item">
+                      <Link className="link nav-link" to="/profile">Profile</Link>
                     </li>                    
-                    <li class="nav-item">
-                      <a class="nav-link clickable" onClick={handleLogout}>Log Out</a>
+                    <li className="nav-item">
+                      <Link  className="nav-link clickable" to="/home" onClick={handleLogout}>Log Out</Link>
                     </li>
                     {/* <li class="nav-item">
                       <a class="nav-link" href="#">Team</a>

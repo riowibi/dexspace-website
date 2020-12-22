@@ -29,7 +29,7 @@ const UserDex = (props) => {
       firebase.firestore().collection("dex").onSnapshot(snapshot => {
         
         snapshot.forEach(doc => {
-          if(dexId == doc.data().dex_id){
+          if(dexId === doc.data().dex_id){
             setFullname(doc.data().fullname);
             setDocId(doc.id);
             setOs(doc.data().os);
@@ -92,53 +92,76 @@ const UserDex = (props) => {
   
     useEffect(() => {
       readDex()
-    }, [])
+    },[])
 
     return (
       <section>
         <div className="mainBody">
           <NavbarUser />
-          <div class="container">
-            <div class="row margin-mobile">
-              <div class="col-xl">
+          <div className="container">
+            <div className="row margin-mobile">
+              <div className="col-xl">
                 <h3 style={{textAlign:"left"}}>Information for [<span style={{color:"#e12729",fontWeight:"bold",fontStyle:"italic"}}>{dexId}</span>]</h3>
                 <div className="col child-box shadow p-3 mb-5 bg-white">
                   <table className="table-dex" style={{textAlign:"left", width:"100%"}}>
-                    <td>
-                      <tr>Status Dex</tr>
-                      <tr className="empty-row"><hr/></tr>
-                      <tr>IPv4</tr>
-                      <tr>Anydesk ID</tr>
-                      <tr>Anydesk Pass</tr>
-                      <tr className="empty-row"><hr/></tr>
-                      <tr>Specification</tr>
-                      <tr>Operating System</tr>
-                      <tr>CPU</tr>
-                      <tr>RAM Memory</tr>
-                      <tr>Storage</tr>
-                      <tr className="empty-row"><hr/></tr>
-                      <tr>Billing</tr>
-                    </td>
-                    <td className="empty-column"></td>
-                    <td>
-                      <tr>: {status}</tr>
-                      <tr className="empty-row"><hr/></tr>
-                      <tr>: {ip}</tr>
-                      <tr>: {anydesk}</tr>
-                      <tr>: {anydeskPass}</tr>
-                      <tr className="empty-row"><hr/></tr>
-                      <tr>: {specification}</tr>
-                      <tr>: {os}</tr>
-                      <tr>: {cpu}</tr>
-                      <tr>: {ram}</tr>
-                      <tr>: {storage}</tr>
-                      <tr className="empty-row"><hr/></tr>
-                      <tr>: {billing}</tr>
-                    </td>
+                    <tbody>
+                      <tr>
+                        <td>Status Dex</td>
+                        <td>: {status}</td>
+                      </tr>
+                      <tr className="empty-row">
+                        <td><hr/></td>
+                        <td><hr/></td>
+                      </tr>
+                      <tr>
+                        <td>IPv4</td>
+                        <td>: {ip}</td>
+                      </tr>
+                      <tr>
+                        <td>Anydesk ID</td>
+                        <td>: {anydesk}</td>
+                      </tr>
+                      <tr>
+                        <td>Anydesk Pass</td>
+                        <td>: {anydeskPass}</td>
+                      </tr>                    
+                      <tr className="empty-row">
+                        <td><hr/></td>
+                        <td><hr/></td>
+                      </tr>
+                      <tr>
+                        <td>Specification</td>
+                        <td>: {specification}</td>
+                      </tr>
+                      <tr>
+                        <td>Operating System</td>
+                        <td>: {os}</td>
+                      </tr>
+                      <tr>
+                        <td>CPU</td>
+                        <td>: {cpu}</td>
+                      </tr>
+                      <tr>
+                        <td>RAM Memory</td>
+                        <td>: {ram}</td>
+                      </tr>
+                      <tr>
+                        <td>Storage</td>
+                        <td>: {storage}</td>
+                      </tr>                   
+                      <tr className="empty-row">
+                        <td><hr/></td>
+                        <td><hr/></td>
+                      </tr>
+                      <tr>
+                        <td>Billing</td>
+                        <td>: {billing}</td>
+                      </tr>  
+                    </tbody> 
                   </table>
                 </div>
               </div>
-              <div class="col-xl">
+              <div className="col-xl">
                 <h3 style={{textAlign:"left"}}>How to use Dexspace?</h3>
                 <div style={{textAlign:"left"}} className="child-box child-box shadow p-3 mb-5 bg-white anydesk">
                   <h5>Use AnyDesk!, here tutorial how to connect with Anydesk</h5>
